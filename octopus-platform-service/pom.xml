@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ifeng.octopus</groupId>
-		<artifactId>octopus-platform</artifactId>
+		<artifactId>octopus-platform-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<groupId>com.ifeng.octopus</groupId>
