@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- Maps '/' requests to the 'home' view -->
+	<mvc:view-controller path="/" view-name="index"/>
+		
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	<context:component-scan base-package="com.ifeng.octopus.bpm2" />
+	
+	<!-- Static resources -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.FormHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+					<property name="prefixJson" value="false" />
+					<property name="supportedMediaTypes" value="application/json" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<!-- <mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class="com.ifeng.octopus.bpm2.web.data.custom.CustomArgumentResolver"/>
+		</mvc:argument-resolvers>
+		<mvc:async-support>
+			<mvc:callable-interceptors>
+				<bean class="com.ifeng.octopus.bpm2.web.async.TimeoutCallableProcessingInterceptor" />
+			</mvc:callable-interceptors>
+		</mvc:async-support>
+	</mvc:annotation-driven> -->
+	
+	<!-- Only needed because we install custom converters to support the examples in the org.springframewok.samples.mvc.convert package -->
+	<!-- <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+            <bean class="com.ifeng.octopus.bpm2.web.convert.MaskFormatAnnotationFormatterFactory" />
+		</property>
+	</bean> -->
+	
+	<!-- Only needed because we require fileupload in the org.springframework.samples.mvc.fileupload package -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+</beans>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 被2012 () 使用XMLSpy v编辑的 (http://www.altova.com) by -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://model.rest.octopus.ifeng.com" targetNamespace="http://model.rest.octopus.ifeng.com" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">
+	<xs:complexType name="video">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>文件ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>文件名稱</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="url" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>文件線上URL</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="realPath" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>文件存儲物理路徑</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="category" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>视频所属分类</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="categoryCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>分类编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cp" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>CP（视频提供商）</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cpCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>视频提供商-编码</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="createDate" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>创建时间</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="producer" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>创建者</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="state" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>视频状态</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="title" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>视频标题</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="theaterMode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>屏幕比例</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="duration" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>视频时长</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="keyWords" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>视频关键字</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="original" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>视频来源</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="videos">
+		<xs:annotation>
+			<xs:documentation>视频文件查询返回结果列表-目录结构说明</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="video" type="tns:video" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="type" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>視頻文件類型</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="total" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>總記錄數</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="start" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>分頁-開始頁索引</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="limit" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>分頁-結束頁索引</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

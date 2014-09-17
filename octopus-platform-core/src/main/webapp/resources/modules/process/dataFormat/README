@@ -1,0 +1,11 @@
+流程名稱：卫视查阅获取门户各类图文信息和素材
+文件目錄：
+	app
+	  |controller
+	  ----|readfileApply
+	  |model
+	  ----|readfileApply
+	  |store
+	  ----|readfileApply
+	  |view
+	  ----|readfileApply

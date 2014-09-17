@@ -1,0 +1,18 @@
+[
+    {
+        name: '衛視查閱獲取門戶各類圖文信息和素材',
+        thumb: 'resources/images/process/mini/forms.png',
+        desc: '衛視在需要查閱獲取門戶各類圖文信息和素材時,可根據預先約定流程進行申請,逐級審批完成後,門戶將以標準數據格式對申請查閱著開發,以供其進行查閱.',
+        url: 'resources/images/process/tv_read_file.jpg',
+        type: '需要進行身份驗證',
+        pKey: 'PhoenixtvReadFileTask'
+    },
+    {
+        name: '門戶獲取衛視音視頻素材',
+        thumb: 'resources/images/process/mini/picker.png',
+        url: 'resources/images/process/tv_read_file2.jpg',
+        desc: '衛視在需要查閱獲取門戶各類圖文信息和素材時,可根據預先約定流程進行申請,逐級審批完成後,門戶將以標準數據格式對申請查閱著開發,以供其進行查閱.',
+        type: '需要進行身份驗證',
+        pKey: 'PhoenixtvReadFileTask'
+    }
+]
