@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<process description="卫视查阅、获取门户各类图文信息和素材" key="PhoenixtvReadFileTask" name="PhoenixtvReadFileTask" version="1" xmlns="http://jbpm.org/4.4/jpdl">
+<process xmlns="http://jbpm.org/4.4/jpdl" description="卫视查阅、获取门户各类图文信息和素材" key="PhoenixtvReadFileTask" name="PhoenixtvReadFileTask" version="1" >
 	<start g="36,24,48,48" name="开始">
       <transition g="-33,-22" name="填寫申請信息" to="查詢請求"/>
 	</start>
@@ -10,8 +10,8 @@
       <transition g="-39,-23" name="申請人身份檢查" to="權限審查"/>
    </task>
    <task assignee="#{owner}" form="phoenixtv/securityCheck.do" g="451,26,92,52" name="權限審查">
-      <transition name="safeness" to="統計" g="-43,-20"/>
-      <transition name="unsafety" to="自動取消" g="445,113:-50,-22"/>
+      <transition g="-43,-20" name="safeness" to="統計"/>
+      <transition g="445,113:-50,-22" name="unsafety" to="自動取消"/>
    </task>
    <task assignee="#{owner}" form="phoenixtv/audit.do" g="452,191,92,52" name="統計">
       <transition g="-79,-20" name="數據標準化處理" to="數據標準化"/>

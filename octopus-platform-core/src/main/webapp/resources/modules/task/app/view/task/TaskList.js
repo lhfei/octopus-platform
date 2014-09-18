@@ -53,7 +53,7 @@ Ext.define('Ifeng.view.task.TaskList' ,{
         }, '-', {
             itemId: 'delete',
             text: '刷新',
-            iconCls: 'icon-refreshable',
+            iconCls: 'icon-refresh',
             disabled: false,
             action: 'refresh'
         },'-']

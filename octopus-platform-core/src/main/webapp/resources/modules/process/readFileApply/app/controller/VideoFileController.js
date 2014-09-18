@@ -5,12 +5,12 @@ Ext.define('Ifeng.controller.VideoFileController', {
 	extend: 'Ext.app.Controller',
 	alias: 'widget.fileCtrl',
 	
-	modules: [],
-	stores: [],
+	modules: ['VideoModel'],
+	stores: ['VideoStore'],
 	views: ['VideoFileList', 'FileSearchForm'],
 	
 	refs: [
-		{ref: 'fileList', selector: 'fileList'},
+		{ref: 'fileList', 	selector: 'fileList'},
 		{ref: 'searchForm', selector: 'searchForm'}
 	],
 	

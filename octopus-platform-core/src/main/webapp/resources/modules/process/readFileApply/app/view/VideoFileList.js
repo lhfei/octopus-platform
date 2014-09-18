@@ -10,12 +10,13 @@ Ext.define('Ifeng.view.VideoFileList', {
 	autoHeight: true,
 	
 	//title: 'FileList',
+	store: 'VideoStore',
 	
 	selType: 'checkboxmodel',
 
     columns: [
         Ext.create('Ext.grid.RowNumberer'),
-        {header: 'ID',  dataIndex: 'dbId',  flex: 1, align: 'center'},
+        {header: 'ID',  dataIndex: 'id',  flex: 1, align: 'center'},
         {header: '節目名稱', dataIndex: 'name', flex: 1, align: 'center'},
         {
             xtype: 'actioncolumn',
@@ -41,11 +42,11 @@ Ext.define('Ifeng.view.VideoFileList', {
                 scope: this
             }]
         },
-        {header: '所屬分類', dataIndex: 'create', flex: 1, align: 'center'},
-        {header: 'CP', dataIndex: 'descr', flex: 1, align: 'center'},
-        {header: '創建時間', dataIndex: 'assignee', flex: 1, align: 'center'},
-        {header: '文件狀態', dataIndex: 'activityName', flex: 1, align: 'center'},
-        {header: '創建人', dataIndex: 'activityName', flex: 1, align: 'center'}
+        {header: '所屬分類', dataIndex: 'category', flex: 1, align: 'center'},
+        {header: 'CP', dataIndex: 'cp', flex: 1, align: 'center'},
+        {header: '創建時間', dataIndex: 'createDate', flex: 1, align: 'center'},
+        {header: '文件狀態', dataIndex: 'state', flex: 1, align: 'center'},
+        {header: '創建人', dataIndex: 'producer', flex: 1, align: 'center'}
         
     ],
     
