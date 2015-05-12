@@ -345,6 +345,68 @@
 					<excludePackageNames>com.ifeng.octopus.bpm2.services:com.ifeng.octopus.bpm2.web.async:com.ifeng.octopus.bpm2.web.convert:com.ifeng.octopus.bpm2.web.data:com.ifeng.octopus.bpm2.web.model:com.ifeng.octopus.bpm2.web.util</excludePackageNames>
 				</configuration> -->
 			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.4</version>
+				<configuration>
+					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+					<reportPlugins>
+						<!-- Checkstyle -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.13</version>
+							<configuration>
+								<format>xml</format>
+								<configLocation>src/main/resources/config/checkstyle/checkstyle.xml</configLocation>
+							</configuration>
+						</plugin>
+						
+						<!-- PMD -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-pmd-plugin</artifactId>
+							<version>3.3</version>
+							<configuration>
+								<format>xml</format>
+								<targetJdk>${java.version}</targetJdk>
+								<aggregate>true</aggregate>
+								<rulesets>
+									<ruleset>src/main/resources/config/pmd/pmd-rules.xml</ruleset>
+								</rulesets>
+								<minimumTokens>20</minimumTokens>
+								<ignoreIdentifiers>true</ignoreIdentifiers>
+							</configuration>
+						</plugin>
+						
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>findbugs-maven-plugin</artifactId>
+							<version>3.0.0</version>
+							<configuration>
+								<effort>Max</effort>
+								<xmlOutput>true</xmlOutput>
+							</configuration>
+						</plugin>
+						
+					</reportPlugins>
+				</configuration>
+			</plugin>			
 		</plugins>
 	</build>
 
