@@ -94,6 +94,7 @@
 	</modules>
 
 	<build>
+		<finalName>${project.artifactId}-${target.version}</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
