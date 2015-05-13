@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.ifeng.octopus</groupId>
@@ -89,6 +90,85 @@
 	</dependencies>
 	<modules>
 		<module>octopus-platform-core</module>
-    <module>octopus-platform-service</module>
-  </modules>
+		<module>octopus-platform-service</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>cobertura-maven-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<formats>
+							<format>html</format>
+							<format>xml</format>
+						</formats>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>cobertura</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.4</version>
+					<configuration>
+						<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+						<reportPlugins>
+							<!-- Checkstyle -->
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-checkstyle-plugin</artifactId>
+								<version>2.13</version>
+								<configuration>
+									<format>xml</format>
+									<configLocation>src/main/resources/config/checkstyle/checkstyle.xml</configLocation>
+								</configuration>
+							</plugin>
+
+							<!-- PMD -->
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-pmd-plugin</artifactId>
+								<version>3.3</version>
+								<configuration>
+									<format>xml</format>
+									<targetJdk>${java.version}</targetJdk>
+									<aggregate>true</aggregate>
+									<rulesets>
+										<ruleset>src/main/resources/config/pmd/pmd-rules.xml</ruleset>
+									</rulesets>
+									<minimumTokens>20</minimumTokens>
+									<ignoreIdentifiers>true</ignoreIdentifiers>
+								</configuration>
+							</plugin>
+
+							<plugin>
+								<groupId>org.codehaus.mojo</groupId>
+								<artifactId>findbugs-maven-plugin</artifactId>
+								<version>3.0.0</version>
+								<configuration>
+									<effort>Max</effort>
+									<xmlOutput>true</xmlOutput>
+								</configuration>
+							</plugin>
+
+						</reportPlugins>
+					</configuration>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+
+	</build>
+
 </project>
