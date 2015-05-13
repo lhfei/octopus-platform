@@ -21,7 +21,7 @@
 	</properties>
 	
 	<build>
-		<finalName>octopus-platform-service</finalName>
+		<finalName>${project.artifactId}-${target.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

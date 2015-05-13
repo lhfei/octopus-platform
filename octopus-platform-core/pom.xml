@@ -295,7 +295,7 @@
 
 
 	<build>
-		<finalName>octopus-platform-core</finalName>
+		<finalName>${project.artifactId}-${target.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
